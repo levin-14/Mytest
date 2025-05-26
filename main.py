@@ -1,6 +1,16 @@
-def main():
-    print("Hello from mytest!")
+from gpiozero import Button, LED
+
+button = Button(14)
+led = LED(17)
 
 
-if __name__ == "__main__":
-    main()
+print("Press the button to toggle the LED.")
+
+
+while True:
+    if button.is_pressed:
+        led.on()
+        print("on!")
+    else:
+        led.off()
+        print("off!")
